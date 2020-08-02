@@ -3,7 +3,7 @@ import React from 'react';
 
 const Navigation = () => {
   return (
-    <div>
+    <div className="bg-blue-400">
       navigation
     </div>
   );

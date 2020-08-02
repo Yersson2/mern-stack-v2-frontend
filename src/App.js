@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Navigation from './components/Navigation';
 import CreateNote from './components/CreateNote';
 import NoteList from './components/NoteList';
