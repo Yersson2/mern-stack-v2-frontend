@@ -9,7 +9,7 @@ function App() {
   return (
      <Router>
       <Navigation/>
-      <div className="container p-4">
+      <div className="container p-4 mx-auto">
         <Route path='/' exact component={ NoteList }/>
         <Route path='/edit/:id' component={ CreateNote }/>
         <Route path='/create' component={ CreateNote }/>

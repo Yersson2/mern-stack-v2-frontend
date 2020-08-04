@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
+import { useForm } from "react-hook-form";
 
 const CreateUser = () => {
 
@@ -17,16 +18,29 @@ const CreateUser = () => {
   const onChangeUsername = (e) => {
     setUsername(e.target.value);
   }
+
+  const { register, handleSubmit, errors } = useForm();
+
+  const onSubmit = async ( _ , e) => {
+    e.preventDefault();
+    await axios.post('http://localhost:4000/api/users', {
+      username: userName
+    })
+    e.target.reset();
+  };
+
  
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2">
-      <div>
-        <div>
+    <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 mt-6">
+      <div className="border">
+        <div className="border">
           <h3>Create New User</h3>
-          <form action="">
-            <div>
-              <input type="text" onChange={ onChangeUsername}/>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="grid grid-cols-1">
+              <input className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" onChange={ onChangeUsername } ref={register({ required: true })} name="name"/>
+              {errors.name && <span className="text-red-400">This field is required</span>}
             </div>
+            <button type="submit" className="bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded">Send</button>
           </form>
         </div>
       </div>
