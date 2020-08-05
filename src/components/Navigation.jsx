@@ -14,7 +14,7 @@ const Navigation = () => {
 
   return (
     <nav className="flex items-center justify-between flex-wrap bg-white p-4 sticky top-0">
-      <div className="border flex items-center flex-shrink-0 mr-5">
+      <div className="flex items-center flex-shrink-0 mr-5">
         <Link className="font-semibold text-xl tracking-tight" to="/" >Note App</Link>
       </div>
       <div className="block lg:hidden">
